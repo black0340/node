@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const PATH = './'
+const PATH = './' + process.argv[2] + '/'
 const makeFolder = (dir) => {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir);
     }
 }
-makeFolder('duplicated')
-makeFolder('video')
-makeFolder('captured')
+makeFolder(PATH + 'duplicated')
+makeFolder(PATH + 'video')
+makeFolder(PATH + 'captured')
 fs.readdir(PATH, (_, data) => {
     for (let i = 0; i < data.length; i++) {
         if (data[i].lastIndexOf("png") != -1 || data[i].lastIndexOf("aae") != -1) {
